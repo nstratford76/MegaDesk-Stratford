@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace MegaDesk_Stratford
 {
-    public class DeskQuote
+    class Class1
     {
-        
-        public string Name { get; set; }
-        public string Shipping { get; set; }
-        public int numDesks { get; set; }
     }
 }

@@ -16,5 +16,30 @@ namespace MegaDesk_Stratford
         {
             InitializeComponent();
         }
+
+        private void btnAddNewQuote(object sender, EventArgs e)
+        {
+            var addQuote = new AddQuote(this);
+            addQuote.Tag = this;
+            addQuote.Show();
+        }
+
+        private void btnViewQuotes(object sender, EventArgs e)
+        {
+            var viewAllQuotes = new ViewAllQuotes(this);
+            viewAllQuotes.Show();
+
+            this.Hide();
+        }
+
+        private void btnSearchQuotes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

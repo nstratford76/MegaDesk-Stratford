@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace MegaDesk_Stratford
 {
-    public partial class DisplayQuote : Form
+    public partial class ViewAllQuotes : Form
     {
-        public DisplayQuote()
+        private Form _mainMenu;
+        public ViewAllQuotes(Form mainMenu)
         {
             InitializeComponent();
+            _mainMenu = mainMenu;
         }
 
-        private void shippingCost_Click(object sender, EventArgs e)
+        private void ViewAllQuotes_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            
         }
     }
 }
