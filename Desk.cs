@@ -13,8 +13,7 @@ namespace MegaDesk_Stratford
         Oak,
         Rosewood,
         Veneer,
-        Pine,
-        Redwood
+        Pine
     }
     public class Desk
     {
@@ -22,9 +21,40 @@ namespace MegaDesk_Stratford
 
         public int Depth { get; set; }
 
+        public int Area { get { return Width * Depth; } set { this.Area = Area; } }
+
         public int NumberofDrawers { get; set; }
 
         public string SurfaceMaterial { get; set; }
+
+        public int MaterialCost
+        {
+            get
+            {
+                switch(SurfaceMaterial)
+                {
+                    case "Laminate":
+                        return 100;
+                        break;
+                    case "Oak":
+                        return 200;
+                    case "Rosewood":
+                        return 300;
+                        break;
+                    case "Veneer":
+                        return 125;
+                    case "Pine":
+                        return 50;
+                        break;
+                   
+                }
+                return 0;     
+            }
+            set
+            {
+                this.MaterialCost = MaterialCost;
+            }
+        }
 
     }
 }

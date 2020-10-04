@@ -21,12 +21,13 @@ namespace MegaDesk_Stratford
         //public static string SetValueFor = "";
         public DeskQuote dq;
         public Desk desk;
-        private Form _mainMenu;
-        public AddQuote(Form _mainMenu)
+        public List<DeskQuote> quotes;
+        private Form _addMenu;
+        public AddQuote(Form addMenu)
         {
             InitializeComponent();
 
-            // _mainMenu = mainMenu;
+            _addMenu = addMenu;
             //List<DesktopMaterial> materials = Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>().ToList();
 
             //populate surface material
@@ -35,7 +36,8 @@ namespace MegaDesk_Stratford
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
-
+            var desk = new Desk();
+            var dq = new DeskQuote();
         }
 
         private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
@@ -52,6 +54,13 @@ namespace MegaDesk_Stratford
             desk.Width = int.Parse(widthText.Text);
             desk.Depth = int.Parse(depthText.Text);
             desk.SurfaceMaterial = (string)materialMenu.SelectedItem;
+
+            var area = (desk.Width * desk.Depth);
+
+
+            var displayQuote = new DisplayQuote(this);
+            displayQuote.Show();
+
             
         }
     }
