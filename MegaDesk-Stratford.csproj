@@ -61,6 +61,12 @@
     <Compile Include="DisplayQuote.Designer.cs">
       <DependentUpon>DisplayQuote.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchQuote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchQuote.Designer.cs">
+      <DependentUpon>SearchQuote.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,7 +98,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SearchQuote.resx">
+      <DependentUpon>SearchQuote.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewAllQuotes.resx">
       <DependentUpon>ViewAllQuotes.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +118,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\67724467-office-desk-icon-in-cartoon-style-isolated-on-white-background-furniture-and-home-interior-symbol-ve.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipart4574113.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\65436164.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

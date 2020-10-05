@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.nameText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,6 +44,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.deskText = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -81,6 +86,7 @@
             this.widthText.Name = "widthText";
             this.widthText.Size = new System.Drawing.Size(100, 38);
             this.widthText.TabIndex = 3;
+            this.widthText.Validating += new System.ComponentModel.CancelEventHandler(this.widthText_Validating);
             // 
             // label3
             // 
@@ -98,6 +104,7 @@
             this.depthText.Name = "depthText";
             this.depthText.Size = new System.Drawing.Size(100, 38);
             this.depthText.TabIndex = 5;
+            this.depthText.Validating += new System.ComponentModel.CancelEventHandler(this.depthText_Validating);
             // 
             // label4
             // 
@@ -191,6 +198,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -215,6 +230,8 @@
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);
             this.Load += new System.EventHandler(this.AddQuote_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,5 +254,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox deskText;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }

@@ -27,19 +27,29 @@ namespace MegaDesk_Stratford
         private void btnViewQuotes(object sender, EventArgs e)
         {
             var viewAllQuotes = new ViewAllQuotes(this);
+            viewAllQuotes.Tag = this;
             viewAllQuotes.Show();
 
-            this.Hide();
+            //this.Hide();
         }
 
         private void btnSearchQuotes_Click(object sender, EventArgs e)
         {
+            var searchQuotes = new SearchQuote(this);
+            searchQuotes.Tag = this;
+            searchQuotes.Show();
 
+            //this.Hide();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

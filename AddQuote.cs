@@ -21,7 +21,7 @@ namespace MegaDesk_Stratford
         //public static string SetValueFor = "";
         public DeskQuote dq;
         public Desk desk;
-        public List<DeskQuote> quotes;
+        public ViewAllQuotes v;
         private Form _addMenu;
         public AddQuote(Form addMenu)
         {
@@ -54,6 +54,7 @@ namespace MegaDesk_Stratford
             desk.Width = int.Parse(widthText.Text);
             desk.Depth = int.Parse(depthText.Text);
             desk.SurfaceMaterial = (string)materialMenu.SelectedItem;
+            
 
             var area = (desk.Width * desk.Depth);
 
@@ -62,6 +63,52 @@ namespace MegaDesk_Stratford
             displayQuote.Show();
 
             
+        }
+
+        private void widthText_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(widthText.Text))
+            {
+                e.Cancel = true;
+                widthText.Focus();
+                errorProvider1.SetError(widthText, "Please enter width");
+            }
+            
+            else
+            {
+                int width = int.Parse(widthText.Text);
+                if (width < 24 || width > 96)
+                {
+                    e.Cancel = true;
+                    widthText.Focus();
+                    errorProvider1.SetError(widthText, "Please enter a width between 24 and 96");
+                }
+                e.Cancel = false;
+                errorProvider1.SetError(widthText, "");
+            }
+        }
+
+        private void depthText_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(depthText.Text))
+            {
+                e.Cancel = true;
+                depthText.Focus();
+                errorProvider2.SetError(widthText, "Please enter depth");
+            }
+
+            else
+            {
+                int depth = int.Parse(depthText.Text);
+                if (depth < 12 || depth > 48)
+                {
+                    e.Cancel = true;
+                    depthText.Focus();
+                    errorProvider2.SetError(depthText, "Please enter a depth between 12 and 48");
+                }
+                e.Cancel = false;
+                errorProvider2.SetError(widthText, "");
+            }
         }
     }
 }

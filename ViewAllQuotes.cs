@@ -14,19 +14,19 @@ namespace MegaDesk_Stratford
 {
     public partial class ViewAllQuotes : Form
     {
-       
-        List<DeskQuote> quotes3;
+        DeskQuote q;
+        List<DeskQuote> quotes;
         private Form _mainMenu;
         public ViewAllQuotes(Form mainMenu)
         {
             InitializeComponent();
             _mainMenu = mainMenu;
-            quotes3 = quotes;
         }
 
         private void ViewAllQuotes_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+            Form mainMenu = (Form)this.Tag;
+            mainMenu.Show();
         }
     }
 }
