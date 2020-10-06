@@ -20,8 +20,6 @@ namespace MegaDesk_Stratford
         //public static string SetValueForName = "";
         //public static string SetValueFor = "";
         public DeskQuote dq;
-        public Desk desk;
-        public ViewAllQuotes v;
         private Form _addMenu;
         public AddQuote(Form addMenu)
         {
@@ -36,8 +34,8 @@ namespace MegaDesk_Stratford
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
-            var desk = new Desk();
-            var dq = new DeskQuote();
+            dq = new DeskQuote();
+            dq.D = new Desk();
         }
 
         private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
@@ -48,21 +46,16 @@ namespace MegaDesk_Stratford
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dq.Name = nameText.Text;
-            dq.numDesks = int.Parse(deskText.Text);
+            dq.Name = this.nameText.Text;
+            dq.NumDesks = int.Parse(deskText.Text);
             dq.Shipping = (string)shippingMenu.SelectedItem;
-            desk.Width = int.Parse(widthText.Text);
-            desk.Depth = int.Parse(depthText.Text);
-            desk.SurfaceMaterial = (string)materialMenu.SelectedItem;
-            
+            dq.D.NumberofDrawers = int.Parse(drawerText.Text);
+            dq.D.Width = int.Parse(widthText.Text);
+            dq.D.Depth = int.Parse(depthText.Text);
+            dq.D.SurfaceMaterial = (string)materialMenu.SelectedItem;
 
-            var area = (desk.Width * desk.Depth);
-
-
-            var displayQuote = new DisplayQuote(this);
+            var displayQuote = new DisplayQuote(this, dq);
             displayQuote.Show();
-
-            
         }
 
         private void widthText_Validating(object sender, CancelEventArgs e)

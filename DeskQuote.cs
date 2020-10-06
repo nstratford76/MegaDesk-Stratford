@@ -10,42 +10,53 @@ namespace MegaDesk_Stratford
 {
     public class DeskQuote
     {
-        public Desk desk;
-        
-        
-
-
+        public Desk D { get; set; }
+ 
         public string Name { get; set; }
         public string Shipping { get; set; }
-        public int numDesks { get; set; }
+        public int NumDesks { get; set; }
 
-        public int numDeskCost { 
-            get { return numDeskCost; } 
-            set { numDeskCost = numDesks * 200; } 
+        private int _numDeskCost;
+        public int NumDeskCost { 
+            get { return NumDesks * 200; } 
+            set { _numDeskCost = value; } 
         }
 
-       
-        public float shippingCost
+
+        private float _shippingCost;
+        public float ShippingCost
         {
             get {
                 switch (Shipping)
                 {
                     case "3 Day":
-                        if (desk.Area < 1000)
-                            shippingCost = 60;
+                        if (D.Area < 1000)
+                            _shippingCost = 60;
                         break;
                     case "5 Day":
-                        if (desk.Area >= 1000 && desk.Area <= 2000)
-                            shippingCost = 70;
+                        if (D.Area >= 1000 && D.Area <= 2000)
+                            _shippingCost = 70;
                         break;
                     case "7 Day":
-                        if (desk.Area > 2000)
-                            shippingCost = 80;
+                        if (D.Area > 2000)
+                            _shippingCost = 80;
                         break;
                 }
-                return shippingCost;
+                return _shippingCost;
             }
-            set { this.shippingCost = shippingCost; }         
+            set { _shippingCost = value; }         
+        }
+        public float totalCost
+        {
+            get
+            {
+                return ShippingCost + NumDeskCost + D.NumberofDrawersCost + D.MaterialCost + D.Area;
+            }
+            set
+            {
+                this.totalCost = totalCost;
+            }
         }
     }
+    
 }

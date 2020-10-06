@@ -120,11 +120,11 @@
             // 
             this.materialMenu.FormattingEnabled = true;
             this.materialMenu.Items.AddRange(new object[] {
-            "Laminate,",
-            "Rosewood,",
-            "Veneer,",
-            "Oak,",
-            "Pine,",
+            "Laminate",
+            "Rosewood",
+            "Veneer",
+            "Oak",
+            "Pine",
             "Redwood"});
             this.materialMenu.Location = new System.Drawing.Point(819, 153);
             this.materialMenu.Name = "materialMenu";
@@ -162,8 +162,8 @@
             // 
             this.shippingMenu.FormattingEnabled = true;
             this.shippingMenu.Items.AddRange(new object[] {
-            "3 Day,",
-            "5 Day, ",
+            "3 Day",
+            "5 Day",
             "7 Day"});
             this.shippingMenu.Location = new System.Drawing.Point(819, 479);
             this.shippingMenu.Name = "shippingMenu";

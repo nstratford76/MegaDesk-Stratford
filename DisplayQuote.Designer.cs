@@ -110,11 +110,11 @@
             // numDrawers
             // 
             this.numDrawers.AutoSize = true;
-            this.numDrawers.Location = new System.Drawing.Point(439, 468);
+            this.numDrawers.Location = new System.Drawing.Point(516, 468);
             this.numDrawers.Name = "numDrawers";
-            this.numDrawers.Size = new System.Drawing.Size(257, 32);
+            this.numDrawers.Size = new System.Drawing.Size(119, 32);
             this.numDrawers.TabIndex = 7;
-            this.numDrawers.Text = "Number of Drawers";
+            this.numDrawers.Text = "Drawers";
             // 
             // numDrawerCost
             // 
@@ -128,11 +128,11 @@
             // numDesks
             // 
             this.numDesks.AutoSize = true;
-            this.numDesks.Location = new System.Drawing.Point(439, 565);
+            this.numDesks.Location = new System.Drawing.Point(516, 565);
             this.numDesks.Name = "numDesks";
-            this.numDesks.Size = new System.Drawing.Size(231, 32);
+            this.numDesks.Size = new System.Drawing.Size(93, 32);
             this.numDesks.TabIndex = 9;
-            this.numDesks.Text = "Number of Desks";
+            this.numDesks.Text = "Desks";
             // 
             // numDeskCost
             // 
@@ -146,7 +146,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(445, 678);
+            this.label1.Location = new System.Drawing.Point(516, 678);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 32);
             this.label1.TabIndex = 11;

@@ -21,12 +21,28 @@ namespace MegaDesk_Stratford
 
         public int Depth { get; set; }
 
-        public int Area { get { return Width * Depth; } set { this.Area = Area; } }
+        private int _area;
+        public int Area { get { _area = Width * Depth;  return _area; } set { _area = value; } }
 
         public int NumberofDrawers { get; set; }
 
+        private int _numberofDrawersCost;
+        public int NumberofDrawersCost
+        {
+            get
+            {
+                _numberofDrawersCost = NumberofDrawers * 50;
+                return _numberofDrawersCost;
+            }
+            set
+            {
+                _numberofDrawersCost = value;
+            }
+        }
+
         public string SurfaceMaterial { get; set; }
 
+        private int _materialCost;
         public int MaterialCost
         {
             get
@@ -52,7 +68,7 @@ namespace MegaDesk_Stratford
             }
             set
             {
-                this.MaterialCost = MaterialCost;
+                _materialCost = value;
             }
         }
 
