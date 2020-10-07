@@ -32,9 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.nameText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.widthText = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.depthText = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.materialMenu = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,8 +44,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -80,14 +82,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Width(24-96)";
             // 
-            // widthText
-            // 
-            this.widthText.Location = new System.Drawing.Point(146, 314);
-            this.widthText.Name = "widthText";
-            this.widthText.Size = new System.Drawing.Size(100, 38);
-            this.widthText.TabIndex = 3;
-            this.widthText.Validating += new System.ComponentModel.CancelEventHandler(this.widthText_Validating);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -97,14 +91,6 @@
             this.label3.Size = new System.Drawing.Size(253, 46);
             this.label3.TabIndex = 4;
             this.label3.Text = "Depth(12-48)";
-            // 
-            // depthText
-            // 
-            this.depthText.Location = new System.Drawing.Point(146, 479);
-            this.depthText.Name = "depthText";
-            this.depthText.Size = new System.Drawing.Size(100, 38);
-            this.depthText.TabIndex = 5;
-            this.depthText.Validating += new System.ComponentModel.CancelEventHandler(this.depthText_Validating);
             // 
             // label4
             // 
@@ -206,11 +192,57 @@
             // 
             this.errorProvider2.ContainerControl = this;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(138, 324);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            96,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 38);
+            this.numericUpDown1.TabIndex = 15;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(146, 479);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            48,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(120, 38);
+            this.numericUpDown2.TabIndex = 16;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 756);
+            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.deskText);
             this.Controls.Add(this.label7);
@@ -220,9 +252,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.materialMenu);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.depthText);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.widthText);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nameText);
             this.Controls.Add(this.label1);
@@ -232,6 +262,8 @@
             this.Load += new System.EventHandler(this.AddQuote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,9 +274,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox nameText;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox widthText;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox depthText;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox materialMenu;
         private System.Windows.Forms.Label label5;
@@ -256,5 +286,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
     }
 }

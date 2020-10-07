@@ -34,14 +34,13 @@ namespace MegaDesk_Stratford
             name.Text = quote.Name;
             deskMaterial.Text = quote.D.SurfaceMaterial;
             materialCost.Text = quote.D.MaterialCost.ToString();
-            areaCost.Text = quote.D.Area.ToString();
+            areaCost.Text = quote.D.AreaCost.ToString();
             shipping.Text = quote.Shipping;
             shippingCost.Text = quote.ShippingCost.ToString();
             numDrawers.Text += ": " + quote.D.NumberofDrawers.ToString();
             numDrawerCost.Text = quote.D.NumberofDrawersCost.ToString();
             numDesks.Text += ": " + quote.NumDesks.ToString();
             numDeskCost.Text = quote.NumDeskCost.ToString();
-
             totalCost.Text = quote.totalCost.ToString();
 
         }

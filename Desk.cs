@@ -17,12 +17,35 @@ namespace MegaDesk_Stratford
     }
     public class Desk
     {
+        public const short MIN_WIDTH = 24;
+        public const short MAX_WIDTH = 96;
+        public const short MIN_DEPTH = 12;
+        public const short MAX_DEPTH = 48;
         public int Width { get; set; }
 
         public int Depth { get; set; }
 
         private int _area;
         public int Area { get { _area = Width * Depth;  return _area; } set { _area = value; } }
+
+        private int _areaCost;
+        public int AreaCost {
+            get
+            {
+                if (Area <= 1000)
+                    return 0;
+                else
+                {
+                    _areaCost = Area - 1000;
+                    return _areaCost;
+                }
+                    
+            }
+            set
+            {
+                _areaCost = value;
+            }
+        }
 
         public int NumberofDrawers { get; set; }
 

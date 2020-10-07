@@ -10,6 +10,7 @@ namespace MegaDesk_Stratford
 {
     public class DeskQuote
     {
+        public const short BASE_DESK_COST = 200;
         public Desk D { get; set; }
  
         public string Name { get; set; }
@@ -17,10 +18,7 @@ namespace MegaDesk_Stratford
         public int NumDesks { get; set; }
 
         private int _numDeskCost;
-        public int NumDeskCost { 
-            get { return NumDesks * 200; } 
-            set { _numDeskCost = value; } 
-        }
+        
 
 
         private float _shippingCost;
@@ -46,15 +44,23 @@ namespace MegaDesk_Stratford
             }
             set { _shippingCost = value; }         
         }
+        public int NumDeskCost
+        {
+            get { _numDeskCost = NumDesks * BASE_DESK_COST; return _numDeskCost; }
+            set { _numDeskCost = value; }
+        }
+        private float _totalCost;
         public float totalCost
         {
             get
             {
-                return ShippingCost + NumDeskCost + D.NumberofDrawersCost + D.MaterialCost + D.Area;
+                float totalBeforeDesks = ShippingCost + D.NumberofDrawersCost + D.MaterialCost + D.AreaCost;
+                _totalCost = (totalBeforeDesks * NumDesks) + NumDeskCost;
+                return _totalCost;
             }
             set
             {
-                this.totalCost = totalCost;
+                _totalCost = value;
             }
         }
     }

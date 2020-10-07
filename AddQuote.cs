@@ -50,58 +50,58 @@ namespace MegaDesk_Stratford
             dq.NumDesks = int.Parse(deskText.Text);
             dq.Shipping = (string)shippingMenu.SelectedItem;
             dq.D.NumberofDrawers = int.Parse(drawerText.Text);
-            dq.D.Width = int.Parse(widthText.Text);
-            dq.D.Depth = int.Parse(depthText.Text);
+            dq.D.Width = (int)numericUpDown1.Value;
+            dq.D.Depth = (int)numericUpDown2.Value;
             dq.D.SurfaceMaterial = (string)materialMenu.SelectedItem;
 
             var displayQuote = new DisplayQuote(this, dq);
             displayQuote.Show();
         }
 
-        private void widthText_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(widthText.Text))
-            {
-                e.Cancel = true;
-                widthText.Focus();
-                errorProvider1.SetError(widthText, "Please enter width");
-            }
+        //private void widthText_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (string.IsNullOrWhiteSpace(widthText.Text))
+        //    {
+        //        e.Cancel = true;
+        //        widthText.Focus();
+        //        errorProvider1.SetError(widthText, "Please enter width");
+        //    }
             
-            else
-            {
-                int width = int.Parse(widthText.Text);
-                if (width < 24 || width > 96)
-                {
-                    e.Cancel = true;
-                    widthText.Focus();
-                    errorProvider1.SetError(widthText, "Please enter a width between 24 and 96");
-                }
-                e.Cancel = false;
-                errorProvider1.SetError(widthText, "");
-            }
-        }
+        //    else
+        //    {
+        //        int width = int.Parse(widthText.Text);
+        //        if (width < 24 || width > 96)
+        //        {
+        //            e.Cancel = true;
+        //            widthText.Focus();
+        //            errorProvider1.SetError(widthText, "Please enter a width between 24 and 96");
+        //        }
+        //        e.Cancel = false;
+        //        errorProvider1.SetError(widthText, "");
+        //    }
+        //}
 
-        private void depthText_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(depthText.Text))
-            {
-                e.Cancel = true;
-                depthText.Focus();
-                errorProvider2.SetError(widthText, "Please enter depth");
-            }
+        //private void depthText_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (string.IsNullOrWhiteSpace(depthText.Text))
+        //    {
+        //        e.Cancel = true;
+        //        depthText.Focus();
+        //        errorProvider2.SetError(widthText, "Please enter depth");
+        //    }
 
-            else
-            {
-                int depth = int.Parse(depthText.Text);
-                if (depth < 12 || depth > 48)
-                {
-                    e.Cancel = true;
-                    depthText.Focus();
-                    errorProvider2.SetError(depthText, "Please enter a depth between 12 and 48");
-                }
-                e.Cancel = false;
-                errorProvider2.SetError(widthText, "");
-            }
-        }
+        //    else
+        //    {
+        //        int depth = int.Parse(depthText.Text);
+        //        if (depth < 12 || depth > 48)
+        //        {
+        //            e.Cancel = true;
+        //            depthText.Focus();
+        //            errorProvider2.SetError(depthText, "Please enter a depth between 12 and 48");
+        //        }
+        //        e.Cancel = false;
+        //        errorProvider2.SetError(widthText, "");
+        //    }
+        //}
     }
 }
