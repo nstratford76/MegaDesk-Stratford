@@ -7,14 +7,7 @@ using System.Windows.Forms;
 
 namespace MegaDesk_Stratford
 {
-    public enum DesktopMaterial
-    {
-        Laminate,
-        Oak,
-        Rosewood,
-        Veneer,
-        Pine
-    }
+    
     public class Desk
     {
         public const short MIN_WIDTH = 24;
@@ -93,6 +86,14 @@ namespace MegaDesk_Stratford
             {
                 _materialCost = value;
             }
+        }
+        public enum DesktopMaterial
+        {
+            Laminate,
+            Oak,
+            Rosewood,
+            Veneer,
+            Pine
         }
 
     }
