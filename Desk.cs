@@ -7,7 +7,15 @@ using System.Windows.Forms;
 
 namespace MegaDesk_Stratford
 {
-    
+    public enum DesktopMaterial
+    {
+        Laminate,
+        Oak,
+        Rosewood,
+        Veneer,
+        Pine
+    }
+
     public class Desk
     {
         public const short MIN_WIDTH = 24;
@@ -56,30 +64,30 @@ namespace MegaDesk_Stratford
             }
         }
 
-        public string SurfaceMaterial { get; set; }
+        public DesktopMaterial SurfaceMaterial { get; set; }
 
         private int _materialCost;
         public int MaterialCost
         {
             get
             {
-                switch(SurfaceMaterial)
-                {
-                    case "Laminate":
-                        return 100;
-                        break;
-                    case "Oak":
-                        return 200;
-                    case "Rosewood":
-                        return 300;
-                        break;
-                    case "Veneer":
-                        return 125;
-                    case "Pine":
-                        return 50;
-                        break;
+                //switch(SurfaceMaterial)
+                //{
+                //    case "Laminate":
+                //        return 100;
+                //        break;
+                //    case "Oak":
+                //        return 200;
+                //    case "Rosewood":
+                //        return 300;
+                //        break;
+                //    case "Veneer":
+                //        return 125;
+                //    case "Pine":
+                //        return 50;
+                //        break;
                    
-                }
+                //}
                 return 0;     
             }
             set
@@ -87,14 +95,7 @@ namespace MegaDesk_Stratford
                 _materialCost = value;
             }
         }
-        public enum DesktopMaterial
-        {
-            Laminate,
-            Oak,
-            Rosewood,
-            Veneer,
-            Pine
-        }
+
 
     }
 }

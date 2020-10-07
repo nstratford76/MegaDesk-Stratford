@@ -32,7 +32,7 @@ namespace MegaDesk_Stratford
         private void DisplayQuote_Load(object sender, EventArgs e)
         {
             name.Text = quote.Name;
-            deskMaterial.Text = quote.D.SurfaceMaterial;
+            //deskMaterial.Text = quote.D.SurfaceMaterial;
             materialCost.Text = "$" + quote.D.MaterialCost.ToString();
             area.Text += ": " + quote.D.Area;
             areaCost.Text = "$" + quote.D.AreaCost.ToString();

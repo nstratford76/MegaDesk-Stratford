@@ -29,7 +29,14 @@ namespace MegaDesk_Stratford
             //List<DesktopMaterial> materials = Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>().ToList();
 
             //populate surface material
+            List<DesktopMaterial> materials = Enum.GetValues(typeof(DesktopMaterial))
+                .Cast<DesktopMaterial>()
+                 .ToList();
 
+            materialMenu.DataSource = materials;
+
+            //set default value to empty
+            materialMenu.SelectedIndex = -1;
         }
 
         private void AddQuote_Load(object sender, EventArgs e)
@@ -52,10 +59,15 @@ namespace MegaDesk_Stratford
             dq.D.NumberofDrawers = int.Parse(drawerText.Text);
             dq.D.Width = (int)numericUpDown1.Value;
             dq.D.Depth = (int)numericUpDown2.Value;
-            dq.D.SurfaceMaterial = (string)materialMenu.SelectedItem;
+           // dq.D.SurfaceMaterial = (string)materialMenu.SelectedItem;
 
             var displayQuote = new DisplayQuote(this, dq);
             displayQuote.Show();
+        }
+
+        private void materialMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         //private void widthText_Validating(object sender, CancelEventArgs e)
@@ -66,7 +78,7 @@ namespace MegaDesk_Stratford
         //        widthText.Focus();
         //        errorProvider1.SetError(widthText, "Please enter width");
         //    }
-            
+
         //    else
         //    {
         //        int width = int.Parse(widthText.Text);
