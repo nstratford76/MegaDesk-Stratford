@@ -41,6 +41,7 @@
             this.numDeskCost = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.totalCost = new System.Windows.Forms.Label();
+            this.Costs = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // name
@@ -75,9 +76,9 @@
             this.area.AutoSize = true;
             this.area.Location = new System.Drawing.Point(516, 275);
             this.area.Name = "area";
-            this.area.Size = new System.Drawing.Size(180, 32);
+            this.area.Size = new System.Drawing.Size(75, 32);
             this.area.TabIndex = 3;
-            this.area.Text = "Surface Area";
+            this.area.Text = "Area";
             // 
             // materialCost
             // 
@@ -161,11 +162,21 @@
             this.totalCost.TabIndex = 12;
             this.totalCost.Text = "Cost";
             // 
+            // Costs
+            // 
+            this.Costs.AutoSize = true;
+            this.Costs.Location = new System.Drawing.Point(780, 82);
+            this.Costs.Name = "Costs";
+            this.Costs.Size = new System.Drawing.Size(87, 32);
+            this.Costs.TabIndex = 13;
+            this.Costs.Text = "Costs";
+            // 
             // DisplayQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1221, 789);
+            this.Controls.Add(this.Costs);
             this.Controls.Add(this.totalCost);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numDeskCost);
@@ -202,5 +213,6 @@
         private System.Windows.Forms.Label numDeskCost;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label totalCost;
+        private System.Windows.Forms.Label Costs;
     }
 }

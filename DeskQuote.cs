@@ -30,14 +30,26 @@ namespace MegaDesk_Stratford
                     case "3 Day":
                         if (D.Area < 1000)
                             _shippingCost = 60;
+                        else if (D.Area >= 1000 && D.Area <= 2000)
+                            _shippingCost = 70;
+                        else
+                            _shippingCost = 80;
                         break;
                     case "5 Day":
-                        if (D.Area >= 1000 && D.Area <= 2000)
-                            _shippingCost = 70;
+                        if (D.Area < 1000)
+                            _shippingCost = 40;
+                        else if (D.Area >= 1000 && D.Area <= 2000)
+                            _shippingCost = 50;
+                        else
+                            _shippingCost = 60;
                         break;
                     case "7 Day":
-                        if (D.Area > 2000)
-                            _shippingCost = 80;
+                        if (D.Area < 1000)
+                            _shippingCost = 30;
+                        else if (D.Area >= 1000 && D.Area <= 2000)
+                            _shippingCost = 35;
+                        else
+                            _shippingCost = 40;
                         break;
                 }
                 return _shippingCost;
