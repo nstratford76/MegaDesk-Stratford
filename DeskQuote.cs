@@ -8,6 +8,15 @@ using System.Windows.Forms;
 
 namespace MegaDesk_Stratford
 {
+    //enum for delevery 
+    public enum DeliveryType
+    {
+        Rush3Days,
+        Rush5Days,
+        Rush7Days,
+        NoRush
+    }
+
     public class DeskQuote
     {
         public const short BASE_DESK_COST = 200;
@@ -75,6 +84,13 @@ namespace MegaDesk_Stratford
                 _totalCost = value;
             }
         }
+
+        //Method for GetQuote
+        public decimal GetQuote()
+        {
+            return 0;
+        }
+
     }
     
 }
