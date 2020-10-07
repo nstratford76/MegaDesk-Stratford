@@ -128,5 +128,8 @@
   <ItemGroup>
     <None Include="Resources\65436164.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\rushOrderPrices.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

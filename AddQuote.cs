@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MegaDesk_Stratford
 {
-    
+
     public partial class AddQuote : Form
     {
         //public static string SetValueForWidth = "";
@@ -26,7 +26,6 @@ namespace MegaDesk_Stratford
             InitializeComponent();
 
             _addMenu = addMenu;
-            //List<DesktopMaterial> materials = Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>().ToList();
 
             //populate surface material
             List<DesktopMaterial> materials = Enum.GetValues(typeof(DesktopMaterial))
@@ -37,6 +36,15 @@ namespace MegaDesk_Stratford
 
             //set default value to empty
             materialMenu.SelectedIndex = -1;
+
+            this.numDepth.Maximum = Desk.MAX_DEPTH;
+            this.numDepth.Minimum = Desk.MIN_DEPTH;
+
+            this.numWidth.Maximum = Desk.MAX_WIDTH;
+            this.numWidth.Minimum = Desk.MIN_WIDTH;
+
+            this.NumDrawers.Maximum = Desk.MAX_DESK_DRAWERS;
+            this.NumDrawers.Minimum = Desk.MIN_DESK_DRAWERS;
         }
 
         private void AddQuote_Load(object sender, EventArgs e)
@@ -56,10 +64,10 @@ namespace MegaDesk_Stratford
             dq.Name = this.nameText.Text;
             dq.NumDesks = int.Parse(deskText.Text);
             dq.Shipping = (string)shippingMenu.SelectedItem;
-            dq.D.NumberofDrawers = int.Parse(drawerText.Text);
-            dq.D.Width = (int)numericUpDown1.Value;
-            dq.D.Depth = (int)numericUpDown2.Value;
-           // dq.D.SurfaceMaterial = (string)materialMenu.SelectedItem;
+            dq.D.NumberofDrawers = (int)NumDrawers.Value;
+            dq.D.Width = (int)numWidth.Value;
+            dq.D.Depth = (int)numDepth.Value;
+            // dq.D.SurfaceMaterial = (string)materialMenu.SelectedItem;
 
             var displayQuote = new DisplayQuote(this, dq);
             displayQuote.Show();
@@ -69,51 +77,5 @@ namespace MegaDesk_Stratford
         {
 
         }
-
-        //private void widthText_Validating(object sender, CancelEventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(widthText.Text))
-        //    {
-        //        e.Cancel = true;
-        //        widthText.Focus();
-        //        errorProvider1.SetError(widthText, "Please enter width");
-        //    }
-
-        //    else
-        //    {
-        //        int width = int.Parse(widthText.Text);
-        //        if (width < 24 || width > 96)
-        //        {
-        //            e.Cancel = true;
-        //            widthText.Focus();
-        //            errorProvider1.SetError(widthText, "Please enter a width between 24 and 96");
-        //        }
-        //        e.Cancel = false;
-        //        errorProvider1.SetError(widthText, "");
-        //    }
-        //}
-
-        //private void depthText_Validating(object sender, CancelEventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(depthText.Text))
-        //    {
-        //        e.Cancel = true;
-        //        depthText.Focus();
-        //        errorProvider2.SetError(widthText, "Please enter depth");
-        //    }
-
-        //    else
-        //    {
-        //        int depth = int.Parse(depthText.Text);
-        //        if (depth < 12 || depth > 48)
-        //        {
-        //            e.Cancel = true;
-        //            depthText.Focus();
-        //            errorProvider2.SetError(depthText, "Please enter a depth between 12 and 48");
-        //        }
-        //        e.Cancel = false;
-        //        errorProvider2.SetError(widthText, "");
-        //    }
-        //}
     }
 }
