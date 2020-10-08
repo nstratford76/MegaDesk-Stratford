@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,8 +33,8 @@ namespace MegaDesk_Stratford
         private void DisplayQuote_Load(object sender, EventArgs e)
         {
             name.Text = quote.Name;
-            //deskMaterial.Text = quote.D.SurfaceMaterial;
-            materialCost.Text = "$" + quote.D.MaterialCost.ToString();
+            deskMaterial.Text = Enum.GetName(typeof(DesktopMaterial), quote.D.SurfaceMaterial);
+            materialCost.Text = "$" + quote.D.MaterialCost;
             area.Text += ": " + quote.D.Area;
             areaCost.Text = "$" + quote.D.AreaCost.ToString();
             shipping.Text = quote.Shipping;

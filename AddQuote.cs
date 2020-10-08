@@ -34,6 +34,7 @@ namespace MegaDesk_Stratford
                  .ToList();
 
             materialMenu.DataSource = materials;
+           
 
             //set default value to empty
             materialMenu.SelectedIndex = -1;
@@ -59,8 +60,10 @@ namespace MegaDesk_Stratford
             dq.D.NumberofDrawers = int.Parse(drawerText.Text);
             dq.D.Width = (int)numericUpDown1.Value;
             dq.D.Depth = (int)numericUpDown2.Value;
-           // dq.D.SurfaceMaterial = (string)materialMenu.SelectedItem;
-
+            DesktopMaterial m = (DesktopMaterial)materialMenu.SelectedItem;
+            dq.D.SurfaceMaterial = (DesktopMaterial)materialMenu.SelectedIndex;
+            
+            //dq.D.SurfaceMaterial = (DesktopMaterial)x;
             var displayQuote = new DisplayQuote(this, dq);
             displayQuote.Show();
         }
