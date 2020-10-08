@@ -36,7 +36,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.materialMenu = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.drawerText = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.shippingMenu = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -44,12 +43,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numWidth = new System.Windows.Forms.NumericUpDown();
+            this.numDepth = new System.Windows.Forms.NumericUpDown();
+            this.NumDrawers = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWidth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDepth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumDrawers)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -128,14 +129,6 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Number of Drawers";
             // 
-            // drawerText
-            // 
-            this.drawerText.Location = new System.Drawing.Point(465, 202);
-            this.drawerText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.drawerText.Name = "drawerText";
-            this.drawerText.Size = new System.Drawing.Size(58, 26);
-            this.drawerText.TabIndex = 9;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -199,65 +192,72 @@
             // 
             this.errorProvider2.ContainerControl = this;
             // 
-            // numericUpDown1
+            // numWidth
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(78, 209);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numWidth.Location = new System.Drawing.Point(78, 209);
+            this.numWidth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numWidth.Maximum = new decimal(new int[] {
             96,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.numWidth.Minimum = new decimal(new int[] {
             24,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(68, 26);
-            this.numericUpDown1.TabIndex = 15;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numWidth.Name = "numWidth";
+            this.numWidth.Size = new System.Drawing.Size(68, 26);
+            this.numWidth.TabIndex = 15;
+            this.numWidth.Value = new decimal(new int[] {
             24,
             0,
             0,
             0});
             // 
-            // numericUpDown2
+            // numDepth
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(82, 309);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.numDepth.Location = new System.Drawing.Point(82, 309);
+            this.numDepth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numDepth.Maximum = new decimal(new int[] {
             48,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.numDepth.Minimum = new decimal(new int[] {
             12,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(68, 26);
-            this.numericUpDown2.TabIndex = 16;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.numDepth.Name = "numDepth";
+            this.numDepth.Size = new System.Drawing.Size(68, 26);
+            this.numDepth.TabIndex = 16;
+            this.numDepth.Value = new decimal(new int[] {
             12,
             0,
             0,
             0});
+            // 
+            // NumDrawers
+            // 
+            this.NumDrawers.Location = new System.Drawing.Point(461, 209);
+            this.NumDrawers.Name = "NumDrawers";
+            this.NumDrawers.Size = new System.Drawing.Size(120, 26);
+            this.NumDrawers.TabIndex = 17;
             // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 488);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.NumDrawers);
+            this.Controls.Add(this.numDepth);
+            this.Controls.Add(this.numWidth);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.deskText);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.shippingMenu);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.drawerText);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.materialMenu);
             this.Controls.Add(this.label4);
@@ -272,8 +272,9 @@
             this.Load += new System.EventHandler(this.AddQuote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWidth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDepth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumDrawers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,7 +289,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox materialMenu;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox drawerText;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox shippingMenu;
         private System.Windows.Forms.Label label7;
@@ -296,7 +296,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numWidth;
+        private System.Windows.Forms.NumericUpDown numDepth;
+        private System.Windows.Forms.NumericUpDown NumDrawers;
     }
 }
