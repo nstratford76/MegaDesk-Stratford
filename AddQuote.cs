@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -50,7 +53,7 @@ namespace MegaDesk_Stratford
         private void AddQuote_Load(object sender, EventArgs e)
         {
             dq = new DeskQuote();
-            dq.D = new Desk();
+            
         }
 
         private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
@@ -59,8 +62,11 @@ namespace MegaDesk_Stratford
             mainMenu.Show();
         }
 
+        
+
         private void button1_Click(object sender, EventArgs e)
         {
+            dq.D = new Desk();
             dq.Name = this.nameText.Text;
             dq.NumDesks = int.Parse(deskText.Text);
             dq.Shipping = (string)shippingMenu.SelectedItem;
@@ -68,9 +74,34 @@ namespace MegaDesk_Stratford
             dq.D.Width = (int)numWidth.Value;
             dq.D.Depth = (int)numDepth.Value;
             dq.D.SurfaceMaterial = (DesktopMaterial)materialMenu.SelectedItem;
+            AddQuoteToFile(dq);
 
             var displayQuote = new DisplayQuote(this, dq);
             displayQuote.Show();
+        }
+
+        private void AddQuoteToFile(DeskQuote quote)
+        {
+            var quotesFile = @"quotes.json";
+            List<DeskQuote> deskQuotes = new List<DeskQuote>();
+
+            if (File.Exists(quotesFile))
+            {
+                using (StreamReader reader = new StreamReader(quotesFile))
+                {
+                    string quotes = reader.ReadToEnd();
+                    if (quotes.Length > 0)
+                    {
+                        //deserialize quotes(Newtonsoft)
+                        deskQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(quotes);
+
+                        //deserialize quotes(Microsoft)
+                        //deskQuotes = System.Text.Json.JsonSerializer.Deserialize<List<DeskQuote>>(quotes);
+                    }
+                }
+            }
+
+            deskQuotes.Add(dq);
         }
 
         private void materialMenu_SelectedIndexChanged(object sender, EventArgs e)
