@@ -44,7 +44,7 @@ namespace MegaDesk_Stratford
             this.numWidth.Minimum = Desk.MIN_WIDTH;
 
             this.NumDrawers.Maximum = Desk.MAX_DESK_DRAWERS;
-            this.NumDrawers.Minimum = Desk.MIN_DESK_DRAWERS;
+            
         }
 
         private void AddQuote_Load(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace MegaDesk_Stratford
             dq.D.NumberofDrawers = (int)NumDrawers.Value;
             dq.D.Width = (int)numWidth.Value;
             dq.D.Depth = (int)numDepth.Value;
-            // dq.D.SurfaceMaterial = (string)materialMenu.SelectedItem;
+            dq.D.SurfaceMaterial = (DesktopMaterial)materialMenu.SelectedItem;
 
             var displayQuote = new DisplayQuote(this, dq);
             displayQuote.Show();

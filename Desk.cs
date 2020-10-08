@@ -25,6 +25,7 @@ namespace MegaDesk_Stratford
         public const short MAX_WIDTH = 96;
         public const short MIN_DEPTH = 12;
         public const short MAX_DEPTH = 48;
+        public const short MAX_DESK_DRAWERS = 7;
         public const short LAMINATE_COST = 100;
         public const short OAK_COST = 200;
         public const short ROSEWOOD_COST = 300;
