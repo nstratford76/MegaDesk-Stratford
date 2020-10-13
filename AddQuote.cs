@@ -102,6 +102,16 @@ namespace MegaDesk_Stratford
             }
 
             deskQuotes.Add(dq);
+            SaveQuotes(deskQuotes);
+        }
+
+        private void SaveQuotes(List<DeskQuote> quotes)
+        {
+            var quotesFile = @"quotes.json";
+
+            var serializedQuotes = JsonConvert.SerializeObject(quotes);
+
+            File.WriteAllText(quotesFile, serializedQuotes);
         }
 
         private void materialMenu_SelectedIndexChanged(object sender, EventArgs e)
