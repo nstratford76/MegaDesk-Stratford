@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,34 +37,24 @@ namespace MegaDesk_Stratford
         private float _shippingCost;
         public float ShippingCost
         {
+          
             get {
-                switch (Shipping)
+                Dictionary<string, List<int>> prices = GetRushOrder();
+                
+                if (D.Area < 1000)
                 {
-                    case "3 Day":
-                        if (D.Area < 1000)
-                            _shippingCost = 60;
-                        else if (D.Area >= 1000 && D.Area <= 2000)
-                            _shippingCost = 70;
-                        else
-                            _shippingCost = 80;
-                        break;
-                    case "5 Day":
-                        if (D.Area < 1000)
-                            _shippingCost = 40;
-                        else if (D.Area >= 1000 && D.Area <= 2000)
-                            _shippingCost = 50;
-                        else
-                            _shippingCost = 60;
-                        break;
-                    case "7 Day":
-                        if (D.Area < 1000)
-                            _shippingCost = 30;
-                        else if (D.Area >= 1000 && D.Area <= 2000)
-                            _shippingCost = 35;
-                        else
-                            _shippingCost = 40;
-                        break;
+                    _shippingCost = prices[Shipping][0];
                 }
+                else if (D.Area >= 1000 && D.Area <= 2000)
+                {
+                    _shippingCost = prices[Shipping][1];
+                }
+
+                else
+                {
+                    _shippingCost = prices[Shipping][2];
+                }
+                
                 return _shippingCost;
             }
             set { _shippingCost = value; }         
@@ -85,10 +79,62 @@ namespace MegaDesk_Stratford
             }
         }
 
-        //Method for GetQuote
-        public decimal GetQuote()
+        public static Dictionary<string, List<int>> GetRushOrder()
         {
-            return 0;
+            
+            var priceFile = @"rushOrderPrices.txt";
+            //List<int> prices = new List<int>();
+          
+            List<int> threeDayPrices = new List<int>();
+            List<int> fiveDayPrices = new List<int>();
+            List<int> sevenDayPrices = new List<int>();
+            List<int> prices = new List<int>();
+         
+
+            if (File.Exists(priceFile))
+            {
+                using (StreamReader reader = new StreamReader(priceFile))
+                {
+                    string text = reader.ReadToEnd();
+                   
+                    if (text.Length > 0)
+                    {
+                       
+                        prices = text.Split(',').Select(int.Parse).ToList();
+
+                        for (int i = 0; i < text.Length; i++)
+                        {
+                            prices.Add(text[i] - '0');        
+                        }
+                    }  
+                    
+                }
+            }
+          
+
+            for (int i = 0; i < 3; i++)
+            {
+               
+                threeDayPrices.Add(prices[i]);
+            }
+
+            for (int i = 3; i < 6; i++)
+            { 
+                fiveDayPrices.Add(prices[i]);
+            }
+
+            for (int i = 6; i < 9; i++)
+            {
+                sevenDayPrices.Add(prices[i]);
+            }
+
+            Dictionary<string, List<int>> dict = new Dictionary<string, List<int>>()
+            {
+                {"3 Day", threeDayPrices },
+                {"5 Day", fiveDayPrices },
+                {"7 Day", sevenDayPrices }
+            };
+            return dict;
         }
 
     }
